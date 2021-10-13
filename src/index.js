@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import {HashRouter,BrowserRouter,Switch,Route} from 'react-router-dom'
-import './index.css';
+import {HashRouter,BrowserRouter} from 'react-router-dom'
+import './index.modules.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import {createBrowserHistory}from 'history'
@@ -11,9 +11,7 @@ const root= document.getElementById('root')
 ReactDOM.render(
   <React.StrictMode>
 <Router history={history} basename='/currency-convert'>
-<Switch>
-<Route exact path='/' component={App}/>
-</Switch>
+<App/>
 </Router>
   </React.StrictMode>,
  root

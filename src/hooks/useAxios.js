@@ -11,12 +11,11 @@ export const useAxios = (request) => {
     try {
               const currency = await axios[method](url).then((res) => res.data);
                     setResponse(currency);
-
             } catch (err) {
-                setError(err.response.data);
+                setError(err.response.data.message);
             }finally{
-                setLoading(false);
-                setToggle(false)
+              setToggle(false)
+              setLoading(false);
             }
         }
 

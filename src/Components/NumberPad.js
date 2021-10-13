@@ -1,6 +1,6 @@
 import React from 'react';
 import './NumberPad.modules.css'
-const NumberPad =({handle,handleExpense})=>(
+const NumberPad =({item,handle,handleItem,handleExpense})=>(
     <div className='column'>
 <div className='border column'>
 
@@ -22,7 +22,8 @@ const NumberPad =({handle,handleExpense})=>(
   {NumberKey(0,handle)}
   {NumberKey('reset',handle)}
   </div>
-  <div onClick={()=>handleExpense()} className='enter'>
+  <input type='text' placeholder='Purchase?' value={item} onChange={e=>handleItem(e.target.value)}/>
+  <div onClick={()=>handleExpense()} className='enter hover'>
       Enter
   </div>
 </div>
@@ -31,7 +32,7 @@ const NumberPad =({handle,handleExpense})=>(
 export default NumberPad
 
 const NumberKey=(n,handle)=>{
-    return(<div  onClick={()=>handle(n)} className='number-key'>
+    return(<div  onClick={()=>handle(n)} className='number-key hover'>
   <p className='p'>{n}</p>
     </div>)
   }

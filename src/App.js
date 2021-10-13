@@ -5,7 +5,9 @@ import NumberPad from "./Components/NumberPad";
 import Selection from "./Components/Selection";
 import Exchange from "./Components/Exchange";
 import Expense from './Components/Expense';
+
 const App = () => {
+
   const [from, setFrom] = useState({
     symbol: "",
     denomination: "Select a currency",
@@ -24,6 +26,7 @@ const App = () => {
   const [fromToggle, setFromToggle] = useState(false);
   const [amount, setAmount] = useState("");
   const [expenses,setExpenses]=useState([]);
+  const [item,setItem]=useState('')
   const handleFromToggle = () => {
     setFromToggle(!fromToggle);
   };
@@ -44,14 +47,18 @@ const App = () => {
         setToToggle(false);
         setFromToggle(false);
         setAmount("");
+        setExpenses([])
+        setItem('')
         break;
       case "clear":
         setAmount("");
+        setItem('')
         setToToggle(false);
         setFromToggle(false);
         break;
       case "enter":
         setAmount("");
+        setItem('')
         break;
       default:
         setAmount(amount.toString() + data);
@@ -60,16 +67,23 @@ const App = () => {
   };
   const handleExpense=()=>{
 let exp=expenses.slice()
-exp.push(`${amount}-${from.symbol} / ${+amount * +to.rate}-${to.symbol}`)
+exp.push(`${amount}-${from.symbol} / ${(+amount * +to.rate).toFixed(2)}-${to.symbol} for ${item}`)
 setAmount('')
 setExpenses(exp);
+setItem('');
+  }
+  const handleItem=(e)=>{
+    setItem(e)
   }
   const conversion =
     amount !== "" && from.symbol !== "" && to.symbol !== "" ? (
+      <Fragment>
       <div className="exchangeContainer row">
         <Exchange selected={from.symbol} amount={+amount} />
         <Exchange selected={to.symbol} amount={+amount * to.rate} />
       </div>
+      <div className='rateBox'>{`today's exchange rate: x${to.rate}`}</div>
+      </Fragment>
     ) : (
       <div className="exchangeContainer row">conversion amounts show here</div>
     );
@@ -100,12 +114,14 @@ setExpenses(exp);
        />
        {conversion}
      </section>
-     <NumberPad handleExpense={handleExpense} handle={handleAmount} />
+     {error}
+     <NumberPad item={item} handleItem={handleItem} handleExpense={handleExpense} handle={handleAmount} />
        <div className='expenseBox'>
 {mapExpense}
    </div>  
    </div>    
 </Fragment>
+
   return (
     <main className="App">
       {display}
