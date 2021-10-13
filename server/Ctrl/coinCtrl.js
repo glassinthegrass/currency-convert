@@ -18,7 +18,6 @@ module.exports={
           rateArr.splice(z,1)
 
         let finalArr=[{denomination:currency[from],symbol:denomination.base,rate:1},...rateArr]
-console.log(finalArr)
           return res.status(200).send(finalArr)
 
 
