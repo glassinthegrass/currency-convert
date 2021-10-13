@@ -50,7 +50,7 @@ background-color:rgb(148,48,102);
   margin:50px;
   min-height:70vh;
 padding:20px;
-  width:calc(60% - 100px);
+  width:calc(30rem - 100px);
 display:flex;
 flex-direction: column;
 justify-content: space-around;
