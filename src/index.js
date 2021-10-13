@@ -1,12 +1,19 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import {HashRouter,BrowserRouter,Switch,Route} from 'react-router-dom'
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-
+import {createBrowserHistory}from 'history'
+const history = createBrowserHistory();
+const Router = process.env.NODE_ENV ==='development'?HashRouter:BrowserRouter;
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+<Router history={history} basename='/currency-convert'>
+<Switch>
+<Route exact path='/' component={App}/>
+</Switch>
+</Router>
   </React.StrictMode>,
   document.getElementById('root')
 );

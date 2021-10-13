@@ -1,0 +1,38 @@
+.p{
+    width:100%;
+    height:100%;
+    font-weight: 700;
+    font-size:16px;
+    }
+.keypad{display:flex;
+    flex-wrap: wrap;
+  justify-content: center;
+  width:11rem;
+
+  }
+  
+  .number-key{
+  width:calc(30% - 1px);
+    height: 3rem;
+  padding:1px;
+  margin:2px;
+    background-color: rgb(38,11,65);
+    color:rgb(245,196,112); 
+    display:flex;
+    justify-content: flex-start;
+    align-items: center;
+cursor:pointer;
+  }
+  .enter{
+      width:11rem;
+      text-align: center;
+margin:2px;
+padding:1px;
+cursor:pointer;
+background-color: rgb(38,11,65);
+  }
+  .border{
+    border:5px outset rgb(245,196,112);
+    display:flex;
+
+  }

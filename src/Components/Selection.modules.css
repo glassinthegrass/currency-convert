@@ -1,0 +1,44 @@
+.selectionBox{
+    height:200px;
+width:22rem;
+    overflow-y: scroll;
+    display:flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    padding:5px;
+    border:1px solid rgb(245,196,112);
+background-color: rgb(38,11,65);
+}
+.selectedBox{
+    height:2rem;
+    width:22rem;
+    display:flex;
+    justify-content: flex-start;
+    align-items: center;
+    border:1px solid rgb(245,196,112);
+background-color: rgb(38,11,65);
+}
+.selected{
+    border:1.5px solid rgb(55,26,91);
+    width:100%;
+    display:flex;
+    justify-content: flex-start;
+cursor:pointer;
+}
+.hover:hover{
+    background-color: rgb(245,196,112);
+    color:rgb(148,48,102);
+  }
+.title{
+width:5rem;
+height:100%;
+background-color: rgb(148,48,102);
+color:rgb(245,196,112);
+font-weight: 700;
+display:flex;
+justify-content: center;
+align-items: center;
+border-right:1px solid rgb(245,196,112);
+}
+
