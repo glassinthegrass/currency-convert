@@ -8,6 +8,7 @@ export const useAxios = (request) => {
 
   const axiosRequest = async(axiosReq) => {      
     const {method,url}=axiosReq
+    
     try {
               const currency = await axios[method](url).then((res) => res.data);
                     setResponse(currency);
@@ -24,9 +25,8 @@ export const useAxios = (request) => {
         }
   
   useEffect(()=>{
-    if(request){
+    if(toggle){
         axiosRequest(request);
-
     } 
   },[toggle,request])
 return [{loading,response,error},handleRefresh]
